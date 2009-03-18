@@ -11,12 +11,11 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: siga_prefeitura_development
+  database: siga_development
   pool: 5
   username: postgres
-  password: protheus
-  host: localhost
-  port: 5432
+  #host: localhost
+  #port: 5432
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -39,10 +38,10 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: siga_prefeitura_test
+  database: siga_test
   pool: 5
   username: postgres
-  password: protheus
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -62,10 +61,10 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: siga_prefeitura_production
+  database: siga_production
   pool: 5
   username: postgres
-  password: protheus
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
