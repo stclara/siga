@@ -2,74 +2,46 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
-    <head>
+  <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <title>SIG@ - SISTEMA DE GESTÃO @DMINISTRATIVA</title>
-    <%= stylesheet_link_tag 'scaffold', 'base', 'style' %>
-    <%= stylesheet_link_tag 'siga' %>
-
-    <%= javascript_include_tag :defaults, :cache => true %>
-
-    </head>
-    <body>
-      <div id='tudo'>
-      <div id='conteudo'>
-
-      <center>
-
-      <div id='status'>
-         <% if session_user.adm == "SIM" %>
-           <%= tooltip link_to(image_tag('adm.png', {:class => 'linkbotao',:border => 0}),
-           :controller => "home", :action => "menuAdm"), { :tooltip => 'Módulo Administrativo.'} %>
-         <% end %>
-
-         <% if session_user.ger == "SIM" %>
-           <%= tooltip link_to(image_tag('ger.png', {:class => 'linkbotao',:border => 0}),
-           :controller => "home", :action => "menuGer"), { :tooltip => 'Módulo Gerencial.'} %>
-         <% end %>
-
-         <% if session_user.opr == "SIM" %>
-           <%= tooltip link_to(image_tag('opr.png', {:class => 'linkbotao',:border => 0}),
-           :controller => "home", :action => "menuOpr"), { :tooltip => 'Módulo Operacional.'} %>
-         <% end %>
-
-        <%= tooltip  link_to(image_tag('printer.png', {:class => 'linkbotao',:border => 0}),
-        :controller => :reports, :action => "index"), { :tooltip => 'Gerenciador de Impressão.'}  %>
-
-         <%= tooltip  link_to(image_tag('agenda.png', {:class => 'linkbotao',:border => 0}),
-        :controller => "#", :action => "#"), { :tooltip => 'Agenda de Compromissos.'}  %>
-
-        <%= tooltip  link_to(image_tag('fone.png', {:class => 'linkbotao',:border => 0}),
-        :controller => "#", :action => "#"), { :tooltip => 'Agenda de Telefones.'}  %>
-
-        <%= tooltip  link_to(image_tag('senha.png', {:class => 'linkbotao',:border => 0}),
-        :controller => :users, :action => "show_password"), { :tooltip => 'Altera Senha.'}  %>
-
-        <%= tooltip link_to(image_tag('sair.png', {:class => 'linkbotao',:border => 0}),
-         :controller => "login", :action => "logout" ), { :tooltip => 'Sair do Sistema.' } %>
-
+    <%= stylesheet_link_tag 'base', 'style' %>
+    <%# stylesheet_link_tag 'siga' %>
+    <%= javascript_include_tag 'jquery', 'application', :cache => true %>
+  </head>
+  <body>
+    <div id='container'>
+      <div id='header'>
+        <h1><%= image_tag "layout/logo.png" %> </h1>
+        <%# yield :content_header %>
+        <div id='user-navigation'>
+          <ul>
+            <li><%= link_to "Home", "/" %> </li>
+            <li><%= link_to "Notícias", "/articles"%> </li>
+            <% if current_user %>
+              <li><%= link_to "Mensagens", "/inbox"%> </li>
+              <li><%= link_to "Opções", "/"%> </li>
+              <li><%= link_to "Sair", '/logout'%> </li>
+            <% else %>
+              <li><%= link_to "Signup", "/signup"%> </li>
+              <li><%= link_to "Login", "/login"%> </li>
+            <% end %>
+            <div class='clear'></div>
+          </ul>
+        </div>
       </div>
-
-      <div id='status1'>Olá, usuário <%= session_user.login %>.&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-
-      <div id='menu'><b><%= render :partial => @menu %></b></div>
-
-      <div id='corpo'>
-        <br><br>
-        <table align="center">
-         <tr>
-         <th class='th'><%= flash_message %></th>
-         </tr>
-         </table>
-         <%= yield %>
+      <div id='wrapper'>
+        <%= flash_message %>
+        <div id='main'>
+          <%= yield %>
+        </div>
+        <div class='clear'></div>
       </div>
-
-    </center>
-
-      <div id='footer'> Powered by Rails & Postgresql</div>
-
+    </div>
+    <div id='footer'>
+      <div class='block'>
+        <p> Powered by Rails & Postgresql </p>
       </div>
-      </div>
-
-    </body>
-  </html>
+    </div>
+  </body>
+</html>
