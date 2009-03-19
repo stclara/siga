@@ -1,4 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :publications
+
+  map.resources :attachments
+
+  map.resources :zones
+
+  map.resources :countries
+
+  map.resources :provinces
+
+  map.resources :cities
+
+  map.resources :addresses
+
+  map.resources :contacts
+
   map.resources :sectors
 
   map.resources :reports

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contactable: 
+  kind: MyString
+  value: MyString
+  info: MyString
+
+two:
+  contactable: 
+  kind: MyString
+  value: MyString
+  info: MyString
