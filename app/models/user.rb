@@ -2,6 +2,8 @@
 class User < ActiveRecord::Base
   belongs_to :sector
   has_many :publications
+  has_many :addresses, :as => :addressable
+  has_many :contacts, :as => :contactable
 
   acts_as_authentic :crypto_provider => Authlogic::CryptoProviders::BCrypt,
                     :logged_in_timeout => 30.minutes,

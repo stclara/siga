@@ -2,6 +2,8 @@
 class Sector < ActiveRecord::Base
 
   has_many :users
+  has_many :addresses, :as => :addressable
+  has_many :contacts, :as => :contactable
 
   validates_presence_of :name, :message => "O campo Setor não pode estar em branco!"
   validates_uniqueness_of :name, :message => "Setor já cadastrada na base de dados!"
