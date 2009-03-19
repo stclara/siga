@@ -2,64 +2,53 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  helper :all
+  helper_method :current_user_session, :current_user
+  filter_parameter_logging :password, :password_confirmation
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  before_filter :require_user
+  #before_filter :set_time_zone
+  #before_filter :set_locale
 
-  before_filter :authenticate, :default_before_filter
+  private
 
-  skip_before_filter :authenticate_adm, :only => [:access_denied]
-
-  helper_method :session_user
-
-  protected
-  def session_user
-    @session_user ||= User.find(:first, :conditions => ['id = ?', session[:user]])
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
   end
 
-  protected
-    def authenticate
-      unless session[:user]
-        session[:return_to] = request.request_uri
-        redirect_to :controller => "login", :action => "login"
-        return false
-      end
-      return true
-    end
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
 
-  def access_adm
-    unless session_user && session_user.adm == 'SIM'
-      flash[:warning] = "<b>Desculpe, você não possui permissão para acessar esta página!</b>"
-      redirect_to :controller => "home", :action => "index"
+  def require_user
+    unless current_user
+      store_location
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to "/login" #new_user_session_url
       return false
     end
-    return true
   end
 
-   def access_opr
-    unless session_user && session_user.opr == 'SIM'
-      flash[:warning] = "<b>Desculpe, você não possui permissão para acessar esta página!</b>"
-      redirect_to :controller => "home", :action => "index"
-      return false
-    end
-    return true
+  def store_location
+    session[:return_to] = request.request_uri
   end
 
-  def access_ger
-    unless session_user && session_user.ger == 'SIM'
-      flash[:warning] = "<b>Desculpe, você não possui permissão para acessar esta página!</b>"
-      redirect_to :controller => "home", :action => "index"
-      return false
-    end
-    return true
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
 
-  def default_before_filter
-    headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    headers["Expires"] = "Thu, 01 Jan 1970 00:00:00 GMT"
-    return true
-  end 
+  def set_locale
+    locale = current_user.locale if current_user
+    I18n.locale = locale || params[:locale] || 'pt-BR'
+    I18n.load_path += Dir[ File.join(RAILS_ROOT, 'lib', 'locale', '*.{rb,yml}') ]
+  end
+
+  def set_time_zone
+    Time.zone = current_user.time_zone if current_user
+  end
+
 
 end
