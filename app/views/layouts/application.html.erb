@@ -16,7 +16,7 @@
         <%# yield :content_header %>
         <div id='user-navigation'>
           <ul>
-            <li><%= link_to "Home", "/" %> </li>
+            <li><%= link_to "Home", "/" %></li>
             <li><%= link_to "Notícias", "/articles"%> </li>
             <% if current_user %>
               <li><%= link_to "Mensagens", "/inbox"%> </li>
@@ -30,6 +30,7 @@
           </ul>
         </div>
       </div>
+
       <div id='wrapper'>
         <%= flash_message %>
         <div id='main'>

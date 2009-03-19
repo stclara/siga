@@ -25,14 +25,27 @@ module ApplicationHelper
     content_tag("span", content, html_options)
   end
 
+  # def flash_message
+  #   messages = ""
+  #   [:notice, :info, :warning, :error].each {|type|
+  #     if flash[type]
+  #       messages += "<p class=\"#{type}\">#{flash[type]}</p>"
+  #     end
+  #   }
+  #   messages
+  # end
+
   def flash_message
-    messages = ""
-    [:notice, :info, :warning, :error].each {|type|
-      if flash[type]
-        messages += "<p class=\"#{type}\">#{flash[type]}</p>"
+    flashes = ''
+    unless flash.size == 0
+      flash.each_pair  do |key, value|
+        flashes += content_tag(:div, content_tag(:div, value, :class => 'message '+key.to_s), :class => 'flash')
       end
-    }
-    messages
+    end
+    flashes
   end
+
+
+
 
 end

@@ -1,7 +1,10 @@
 class AddData < ActiveRecord::Migration
   def self.up
     Sector.create(:name => "TI")
-    User.create(:login => "admin", :password => "admin", :password_confirmation => "admin", :email => "admin@siga.com")
+    User.create!(:login => "admin", :password => "admin", :user_type => :admin,
+                 :password_confirmation => "admin", :state => :active,
+                 :email => "admin@siga.com", :time_zone => "Brasilia")
+
   end
 
   def self.down
