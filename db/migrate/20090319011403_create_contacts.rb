@@ -1,7 +1,7 @@
 class CreateContacts < ActiveRecord::Migration
   def self.up
     create_table :contacts do |t|
-      t.polymorphic :contactable
+      t.references :contactable, :polymorphic => true
       t.string :kind, :null => false,  :limit => 20
       t.string :value, :null => false, :limit => 30
       t.string :info

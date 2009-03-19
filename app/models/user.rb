@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
+
+  acts_as_authentic :crypto_provider => Authlogic::CryptoProviders::BCrypt,
+                    :logged_in_timeout => 30.minutes,
+                    :login_field_validates_length_of_options => { :within => 3..30 },
+                    :login_field_validates_format_of_options => { :message => I18n.t('authlogic.validates.format_login_field') },
+                    :login_field_validates_uniqueness_of_options => { :allow_blank => false }
 
   belongs_to :sector
 
@@ -12,7 +19,7 @@ class User < ActiveRecord::Base
   after_save :clear_password
 
    validates_presence_of :login, :message => 'Campo login não pode estar em branco.'
-  validates_presence_of :nome, :message => 'Campo nome não pode estar em branco.'
+  validates_presence_of :name, :message => 'Campo nome não pode estar em branco.'
   validates_presence_of :password, :message => 'Campo Senha não pode estar em branco.', :if => :get_formulario
   validates_presence_of :password_confirmation, :message => 'Campo Confirma Senha não pode estar em branco.', :if => :get_formulario
   validates_presence_of :password_atual, :on => :update, :message => 'Campo Senha Atual não pode estar em branco.', :if => :get_formulario
@@ -41,7 +48,7 @@ class User < ActiveRecord::Base
 
   def text_upper
     (self.login).upcase!
-    (self.nome).upcase!
+    (self.name).upcase!
   end
 
   def get_senha
@@ -59,8 +66,8 @@ class User < ActiveRecord::Base
 
   def self.search(pesquisar, page)
     paginate :per_page => 10, :page => page,
-             :conditions => ['nome like ?', "%#{pesquisar}%"],
-             :order => 'nome'
+             :conditions => ['name like ?', "%#{pesquisar}%"],
+             :order => 'name'
   end
 
 end

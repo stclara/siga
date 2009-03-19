@@ -7,7 +7,7 @@ class CreateCountries < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :contries, :name
+    add_index :countries, :name
   end
 
   def self.down
