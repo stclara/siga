@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  layout 'siga'
+  # layout 'siga'
 
 
   def index

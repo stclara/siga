@@ -36,12 +36,37 @@
         <div id='main'>
           <%= yield %>
         </div>
+        <div id="sidebar">
+          <% if current_user %>
+            <div class="block">
+              <h3>Menu Principal</h3>
+              <ul class="navigation">
+                <li><a href="#"> Editais </a></li>
+                <li><a href="#"> Cadastro Unico </a></li>
+                <li><a href="#"> Relatorio </a></li>
+                <li><a href="#"> Documentos </a></li>
+                <li><a href="#"> Contas </a></li>
+                <li><a href="#"> Saude </a></li>
+              </ul>
+
+            </div>
+          <% end %>
+          <div class="block">
+            <h3>Bla bla bla</h3>
+            <div class="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+
+
+        </div>
         <div class='clear'></div>
       </div>
-    </div>
-    <div id='footer'>
-      <div class='block'>
-        <p> Powered by Rails & Postgresql </p>
+
+      <div id='footer'>
+        <div class='block'>
+          <p> Powered by Rails & Postgresql </p>
+        </div>
       </div>
     </div>
   </body>
