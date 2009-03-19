@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :login, :message => 'Campo login não pode estar em branco.'
   validates_presence_of :name, :message => 'Campo nome não pode estar em branco.'
-  validates_presence_of :password, :message => 'Campo Senha não pode estar em branco.', :if => :get_formulario
-  validates_presence_of :password_confirmation, :message => 'Campo Confirma Senha não pode estar em branco.', :if => :get_formulario
+  validates_presence_of :password, :message => 'Campo Senha não pode estar em branco.'#, :if => :get_formulario
+  validates_presence_of :password_confirmation, :message => 'Campo Confirma Senha não pode estar em branco.'#, :if => :get_formulario
   #validates_presence_of :password_atual, :on => :update, :message => 'Campo Senha Atual não pode estar em branco.', :if => :get_formulario
 
   validates_uniqueness_of :login, :message => 'Login já cadastrado na base de dados.'
