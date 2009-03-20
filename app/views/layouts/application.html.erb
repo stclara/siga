@@ -16,7 +16,7 @@
         <%# yield :content_header %>
         <div id='user-navigation'>
           <ul>
-            <li><%= link_to "Home", "/" %></li>
+
             <li><%= link_to "Notícias", "/articles"%> </li>
             <% if current_user %>
               <li><%= link_to "Mensagens", "/inbox"%> </li>
@@ -26,9 +26,20 @@
               <li><%= link_to "Signup", "/signup"%> </li>
               <li><%= link_to "Login", "/login"%> </li>
             <% end %>
-            <div class='clear'></div>
           </ul>
+          <div class='clear'></div>
+
         </div>
+        <div id="main-navigation">
+          <ul>
+            <li class="first"><a href="#block-text">Home</a></li>
+            <li class="active"><a href="#block-text">Cadum</a></li>
+            <li><a href="#block-login">Editais</a></li>
+            <li><a href="#block-signup">Leis</a></li>
+          </ul>
+        <div class="clear"></div>
+      </div>
+
       </div>
 
       <div id='wrapper'>
