@@ -1,0 +1,46 @@
+<h1>Listing cadums</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Marital status</th>
+    <th>Birth</th>
+    <th>Birthplace</th>
+    <th>Time residence</th>
+    <th>Profession</th>
+    <th>Income</th>
+    <th>Housing</th>
+    <th>Type housing</th>
+    <th>Type house</th>
+    <th>Room</th>
+    <th>Revenue</th>
+    <th>Habitantes</th>
+  </tr>
+
+<% @cadums.each do |cadum| %>
+  <tr>
+    <td><%=h cadum.name %></td>
+    <td><%=h cadum.sex %></td>
+    <td><%=h cadum.marital_status %></td>
+    <td><%=h cadum.birth %></td>
+    <td><%=h cadum.birthplace %></td>
+    <td><%=h cadum.time_residence %></td>
+    <td><%=h cadum.profession %></td>
+    <td><%=h cadum.income %></td>
+    <td><%=h cadum.housing %></td>
+    <td><%=h cadum.type_housing %></td>
+    <td><%=h cadum.type_house %></td>
+    <td><%=h cadum.room %></td>
+    <td><%=h cadum.revenue %></td>
+    <td><%=h cadum.habitantes %></td>
+    <td><%= link_to 'Show', cadum %></td>
+    <td><%= link_to 'Edit', edit_cadum_path(cadum) %></td>
+    <td><%= link_to 'Destroy', cadum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cadum', new_cadum_path %>

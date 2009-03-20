@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :cadums
+
   map.root :controller => 'home', :action => 'index'
 
   map.resources :publications
