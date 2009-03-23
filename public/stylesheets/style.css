@@ -12,7 +12,7 @@ body {
 }
 
 hr {
-  background: #f0f0ee; 
+  background: #f0f0ee;
   color: #f0f0ee;
 }
 
@@ -28,11 +28,16 @@ hr {
   color: #FFF;
 }
 
-#user-navigation {
-  top: auto;
-  bottom: 5px;
-  right: 25px;
+
+
+#user-navigation ul li a:link,
+#user-navigation ul li a:visited,
+#user-navigation ul li a:active {
+        color: #e2f7d8;
 }
+
+#user-navigation ul li a:hover { color: #fff; text-decoration: underline; }
+
 
 #main .block .content {
   background: #FFF;
@@ -47,10 +52,10 @@ hr {
   background: #FFF;
 }
 
-#sidebar h3 {  
+#sidebar h3 {
   background: #7A1818;
   color: #FFF;
-  border-bottom: 10px solid #262626;
+  border-bottom: 5px solid #262626;
 }
 
 #main-navigation ul li {
@@ -73,6 +78,7 @@ hr {
 #main-navigation ul li.active a {
   padding: 8px 15px;
 }
+
 
 #sidebar ul li a:link, #sidebar ul li a:visited {
   background: #FFF;
@@ -122,13 +128,15 @@ hr {
   background-color: #262626;
 }
 
-#footer .block {  
+
+
+#footer .block {
   color: #FFF;
   background: #262626;
 }
 
-#footer .block p {      
-  margin: 0;  
+#footer .block p {
+  margin: 0;
   padding: 10px;
 }
 
@@ -219,25 +227,25 @@ ul.list li .item .avatar {
   border-color: #F0F0EE;
   border-width: 1px;
   border-style: solid;
-  padding: 2px; 
+  padding: 2px;
 }
 
 /* box */
 
 #box .block {
-  background: #FFF;  
+  background: #FFF;
 }
 
 #box .block h2 {
-  background: #7A1818;  
+  background: #7A1818;
   color: #FFF;
 }
 
 
 /* rounded borders */
 
-#main, #main-navigation, #main-navigation li, .secondary-navigation, #main .block, #sidebar .block, #sidebar h3, ul.list li, 
-#footer .block, .form input.button, #box .block, #box .block h2 {
+#main, #main-navigation, #main-navigation li, .secondary-navigation, #main .block, #sidebar .block, #sidebar h3, ul.list li,
+.form input.button, #box .block, #box .block h2 {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   -moz-border-radius-topright: 4px;
@@ -265,3 +273,19 @@ ul.list li .item .avatar {
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
 }
+
+div.code {
+  font-size: 14px;
+  font-family: monospace;
+  color: #33EE33;
+  background-color: #222;
+  margin-left: 10px;
+  padding-left: 15px;
+  padding-top: 8px;
+  margin-right: 10px;
+
+}
+
+div.code h1,div.code h3 {
+  color: #33EE33;
+}%
