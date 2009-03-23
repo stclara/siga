@@ -1,0 +1,46 @@
+= SIG@
+
+Ruby        >=   1.8.7
+Rails       >=   2.3.2
+PostgreSQL  >=   8.3.5
+PostGIS     >=   1.3.5
+
+= Instalando
+
+== Requerimentos
+
+* Linux
+* Thin/Ngnix or Passenger
+* ImageMagick
+* GIT
+
+
+== Gems
+
+* postgres
+* authlogic
+* bcrypt-ruby
+* paperclip
+* GeoRuby
+* postgis_adapter
+* will_paginate
+
+
+= Desenvolvedores
+
+== Test
+
+* RSpec
+* RSpec-Rails
+* Object Daddy
+* Faker
+
+= Sobre
+
+
+Repo Oficial:
+http://github.com/stclara/siga
+
+TODO/BUG Tracker:
+http://www.pivotaltracker.com/projects/10997
+
