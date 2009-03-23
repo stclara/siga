@@ -7,21 +7,22 @@
       <li><a href="#block-messages">Estatisticas</a></li>
       <li class="active"><a href="#block-forms-2">Servidores</a></li>
       <li><a href="#block-lists">Permissoes</a></li>
+      <li><a href="#block-lists">Backup</a></li>
     </ul>
     <div class="clear"></div>
   </div>
   <div class="content">
-    <h2 class="title">2 columns forms</h2>
+    <h2 class="title">Opcoes</h2>
     <div class="inner">
       <form action="#" method="get" class="form">
         <div class="columns">
           <div class="column left">
             <div class="group">
-              <label class="label">Text field</label>
+              <label class="label">Cidade</label>
               <input type="text" class="text_field" />
             </div>
             <div class="group">
-              <label class="label">Text area</label>
+              <label class="label">Texto Boas Vindas</label>
               <textarea class="text_area" rows="10" cols="80"></textarea>
             </div>
           </div>
@@ -31,12 +32,12 @@
               <select><option value="1">Choose...</option></select>
             </div>
             <div class="group">
-              <label class="label">Check box</label>
+              <label class="label">Habilitar</label>
               <div>
-                <input type="checkbox" name="checkbox" id="checkbox_1" class="checkbox" value="1" /> <label for="checkbox_1" class="checkbox">Option 1</label>
+                <input type="checkbox" name="checkbox" id="checkbox_1" class="checkbox" value="1" /> <label for="checkbox_1" class="checkbox">GIS</label>
               </div>
               <div>
-                <input type="checkbox" name="checkbox" id="checkbox_2" class="checkbox" value="2" /> <label for="checkbox_2" class="checkbox">Option 2</label>
+                <input type="checkbox" name="checkbox" id="checkbox_2" class="checkbox" value="2" /> <label for="checkbox_2" class="checkbox">Modulos</label>
               </div>
             </div>
             <div class="group">
@@ -52,22 +53,9 @@
         </div>
         <div class="clear"></div>
         <div class="group navform">
-          <input type="submit" class="button" value="Save &rarr;" /> or <a href="#">Cancel</a>
+          <input type="submit" class="button" value="Salvar &rarr;" /> ou <a href="/">Cancelar</a>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-  <% @opts.each do |opt| %>
-    <tr>
-      <td><%=h opt.key %></td>
-      <td><%=h opt.value %></td>
-      <td><%= link_to 'Show', opt %></td>
-      <td><%= link_to 'Edit', edit_opt_path(opt) %></td>
-      <td><%= link_to 'Destroy', opt, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<br />

@@ -3,6 +3,7 @@ class Opt < ActiveRecord::Base
   OPT = {
     :online => true,
     :city => "Sig@ Cidade Teste",
+    :welcome => "Bem Vindo ao SIG@",
     :enable_gis => true,
     :enable_modules => true
   }
