@@ -5,3 +5,16 @@
 #
 # two:
 #   column: value
+
+# == Schema Information
+# Schema version: 99999999999999
+#
+# Table name: sectors
+#
+#  id         :integer         not null, primary key
+#  manager_id :integer
+#  name       :string(255)     not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+

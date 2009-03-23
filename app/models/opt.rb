@@ -17,3 +17,16 @@ class Opt < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+# Schema version: 99999999999999
+#
+# Table name: opts
+#
+#  id         :integer         not null, primary key
+#  key        :string(255)
+#  value      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

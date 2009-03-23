@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   belongs_to :sector
-  
+
   has_many :publications
-  has_many :addresses, :as => :addressable
-  has_many :contacts, :as => :contactable
+
 
   acts_as_authentic :crypto_provider => Authlogic::CryptoProviders::BCrypt,
                     :logged_in_timeout => 30.minutes,
@@ -37,3 +36,33 @@ class User < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+# Schema version: 99999999999999
+#
+# Table name: users
+#
+#  id                  :integer         not null, primary key
+#  login               :string(80)      not null
+#  kind                :string(80)      not null
+#  email               :string(100)
+#  name                :string(100)     default("")
+#  state               :string(255)     default("passive"), not null
+#  crypted_password    :string(255)     not null
+#  password_salt       :string(255)     not null
+#  persistence_token   :string(255)
+#  single_access_token :string(255)
+#  perishable_token    :string(255)
+#  current_login_ip    :string(255)
+#  last_login_ip       :string(255)
+#  time_zone           :string(50)      not null
+#  locale              :string(50)      not null
+#  last_login_at       :datetime
+#  last_request_at     :datetime
+#  current_login_at    :datetime
+#  login_count         :integer
+#  birth               :date
+#  created_at          :datetime
+#  updated_at          :datetime
+#
+
