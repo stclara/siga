@@ -1,0 +1,73 @@
+
+<% form_for(@cadum, :html => { :class => "form" }) do |f| %>
+  <%= f.error_messages %>
+  <div class="columns">
+
+    <div class="column left">
+
+      <div class="group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="group">
+        <%= f.label :sex %><br />
+        <%= f.text_field :sex %>
+      </div>
+      <div class="group">
+        <%= f.label :marital_status %><br />
+        <%= f.text_field :marital_status %>
+      </div>
+      <div class="group">
+        <%= f.label :birth %><br />
+        <%= f.date_select :birth %>
+      </div>
+      <div class="group">
+        <%= f.label :birthplace %><br />
+        <%= f.text_field :birthplace %>
+      </div>
+      <div class="group">
+        <%= f.label :time_residence %><br />
+        <%= f.text_field :time_residence %>
+      </div>
+      <div class="group">
+        <%= f.label :profession %><br />
+        <%= f.text_field :profession %>
+      </div>
+
+    </div>
+    <div class="column right">
+      <div class="group">
+        <%= f.label :income %><br />
+        <%= f.text_field :income %>
+      </div>
+      <div class="group">
+        <%= f.label :housing %><br />
+        <%= f.text_field :housing %>
+      </div>
+      <div class="group">
+        <%= f.label :type_housing %><br />
+        <%= f.text_field :type_housing %>
+      </div>
+      <div class="group">
+        <%= f.label :type_house %><br />
+        <%= f.text_field :type_house %>
+      </div>
+      <div class="group">
+        <%= f.label :room %><br />
+        <%= f.text_field :room %>
+      </div>
+      <div class="group">
+        <%= f.label :revenue %><br />
+        <%= f.text_field :revenue %>
+      </div>
+      <div class="group">
+        <%= f.label :habitantes %><br />
+        <%= f.text_field :habitantes %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="group navform">
+      <%= f.submit "Salvar" %> ou     <%= link_to 'Cancelar', cadums_path %>
+    </div>
+  </div>
+<% end %>

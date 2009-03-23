@@ -16,7 +16,6 @@
         <%# yield :content_header %>
         <div id='user-navigation'>
           <ul>
-
             <li><%= link_to "Notícias", "/articles"%> </li>
             <% if current_user %>
               <li><%= link_to "Mensagens", "/inbox"%> </li>
@@ -28,26 +27,26 @@
             <% end %>
           </ul>
           <div class='clear'></div>
-
         </div>
-        <div id="main-navigation">
-          <ul>
-            <li class="first"><a href="#block-text">Home</a></li>
-            <li class="active"><a href="#block-text">Cadum</a></li>
-            <li><a href="#block-login">Editais</a></li>
-            <li><a href="#block-signup">Leis</a></li>
-          </ul>
-        <div class="clear"></div>
+        <% if current_user %>
+          <div id="main-navigation">
+            <ul>
+              <li class="first"><a href="#block-text">Home</a></li>
+              <li class="active"><a href="/cadum">Cadum</a></li>
+              <li><a href="#block-login">Editais</a></li>
+              <li><a href="#block-signup">Leis</a></li>
+            </ul>
+          <div class="clear"></div>
+        </div>
+         <% end %>
       </div>
-
-      </div>
-
       <div id='wrapper'>
         <%= flash_message %>
         <div id='main'>
           <%= yield %>
         </div>
         <div id="sidebar">
+          <%= yield :sidebar %>
           <% if current_user %>
             <div class="block">
               <h3>Menu Principal</h3>
@@ -59,7 +58,6 @@
                 <li><a href="#"> Contas </a></li>
                 <li><a href="#"> Saude </a></li>
               </ul>
-
             </div>
           <% end %>
           <div class="block">
@@ -71,7 +69,6 @@
         </div>
         <div class='clear'></div>
       </div>
-
       <div id='footer'>
         <div class='block'>
           <p> Powered by Rails & Postgresql </p>

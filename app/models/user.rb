@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   belongs_to :sector
+  
   has_many :publications
   has_many :addresses, :as => :addressable
   has_many :contacts, :as => :contactable

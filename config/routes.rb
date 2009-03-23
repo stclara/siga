@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :cadums
+
 
   map.root :controller => 'home', :action => 'index'
 
@@ -13,7 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contacts
   map.resources :sectors
   map.resources :reports
-
+  map.resources :cadums
+  map.resources :cadum, :controller => "cadums"
 
   map.resource :user_session
   map.logout   '/logout',   :controller => 'user_sessions', :action => 'destroy'
