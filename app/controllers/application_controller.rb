@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   before_filter :require_user
-  #before_filter :set_time_zone
-  #before_filter :set_locale
+  before_filter :set_time_zone
+  before_filter :set_locale
 
   private
 

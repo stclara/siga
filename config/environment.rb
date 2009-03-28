@@ -12,8 +12,8 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
-  # config.gem "hpricot", :version => "0.6", :source => "http://code.whytheluckystiff.net"
   config.gem "postgres"
+  config.gem "postgis_adapter"
   config.gem "authlogic"
   config.gem "bcrypt-ruby", :lib => "bcrypt"
   config.gem "thoughtbot-paperclip" , :lib => "paperclip"
