@@ -4,10 +4,10 @@ class CreateSectors < ActiveRecord::Migration
       t.references :manager
       t.string :name, :null => false
 
-
       t.timestamps
     end
-    add_index :sectors, :name, :unique
+
+    add_index :sectors, :name, :unique => true
 
   end
 

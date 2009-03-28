@@ -24,6 +24,7 @@ config.action_mailer.delivery_method = :test
 config.gem "rspec"
 #config.gem "rspec-rails"
 config.gem "nofxx-object_daddy", :lib => "object_daddy"
+config.gem "rspec_spinner"
 
 # Use SQL instead of Active Record's schema dumper when creating the test database.
 # This is necessary if your schema can't be completely dumped by the schema dumper,
