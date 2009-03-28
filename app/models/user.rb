@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   belongs_to :sector
-
   has_many :publications
 
-
-  acts_as_authentic :crypto_provider => Authlogic::CryptoProviders::BCrypt,
-                    :logged_in_timeout => 30.minutes,
-                    :login_field_validates_length_of_options => { :within => 3..30 },
-                    :login_field_validates_format_of_options => { :message => I18n.t('authlogic.validates.format_login_field') },
-                    :login_field_validates_uniqueness_of_options => { :allow_blank => false }
-
+  acts_as_authentic do |c|
+    c.crypto_provider = Authlogic::CryptoProviders::BCrypt
+    c.logged_in_timeout = 30.minutes
+  #  c.login_field_validates_length_of_options = { :within => 3..30 }
+   # c.login_field_validates_format_of_options = { :message => I18n.t('authlogic.validates.format_login_field') }
+   # c.login_field_validates_uniqueness_of_options = { :allow_blank => false }
+  end
   #attr_accessor :password, :password_confirmation, :password_atual, :conf_senha,
   #:conf_senha_confirmation, :tipo_formulario
 
@@ -61,7 +60,6 @@ end
 #  last_request_at     :datetime
 #  current_login_at    :datetime
 #  login_count         :integer
-#  birth               :date
 #  created_at          :datetime
 #  updated_at          :datetime
 #

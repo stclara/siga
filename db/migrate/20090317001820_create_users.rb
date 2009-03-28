@@ -14,7 +14,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.datetime :last_login_at, :last_request_at, :current_login_at
       t.integer  :login_count
-      t.date :birth
 
       t.timestamps
     end

@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :areas
+
+  map.resources :charters
+
+  map.resources :groups
+
   map.resources :documents
 
 
