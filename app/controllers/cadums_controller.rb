@@ -1,4 +1,6 @@
 class CadumsController < ApplicationController
+  before_filter :require_user
+
   # GET /cadums
   # GET /cadums.xml
   def index

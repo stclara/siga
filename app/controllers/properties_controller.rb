@@ -1,4 +1,6 @@
 class PropertiesController < ApplicationController
+  before_filter :require_user
+
   # GET /properties
   # GET /properties.xml
   def index
