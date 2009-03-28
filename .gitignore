@@ -3,7 +3,6 @@ thumbs.db
 log/*.log
 config/database.yml
 tmp/**/*
-tmp/*
 db/development_structure.sql
 doc/api
 doc/app
