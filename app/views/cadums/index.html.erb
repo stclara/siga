@@ -14,15 +14,11 @@
 
         <% @cadums.each do |cadum| %>
           <tr>
-            <td><%=h cadum.name %></td>
+            <td><%= link_to cadum.name, cadum %></td>
             <td><%=h cadum.sex %></td>
             <td><%=h cadum.marital_status %></td>
             <td><%=h cadum.birth %></td>
             <td><%=h cadum.birthplace %></td>
-
-            <td><%= link_to 'Show', cadum %></td>
-            <td><%= link_to 'Edit', edit_cadum_path(cadum) %></td>
-            <td><%= link_to 'Destroy', cadum, :confirm => 'Are you sure?', :method => :delete %></td>
           </tr>
         <% end %>
       </table>
@@ -41,8 +37,9 @@
         <% form_tag request.path, :method => 'get' do %>
         <%= link_to image_tag('../images/icons/lupa.png', :class=>'img') %>
         <%= text_field_tag :search, params[:search], :title=>'Procura CADUM' %>
+      </p>
 <% end %>
-</p>
+
 
 
 </div>

@@ -1,19 +1,13 @@
-<h1>New publication</h1>
 
-<% form_for(@publication) do |f| %>
-  <%= f.error_messages %>
+<div class="block">
 
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<div class="content">
+  <h2 class="title">Novo Edital</h2>
+  <div class="inner">
+<%= render @publication %>
 
-<%= link_to 'Back', publications_path %>
+
+
+  </div>
+</div>
+</div>

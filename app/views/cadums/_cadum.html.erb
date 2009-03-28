@@ -19,7 +19,7 @@
       </div>
       <div class="group">
         <%= f.label :birth %><br />
-        <%= f.date_select :birth %>
+        <%= f.text_field :birth %>
       </div>
       <div class="group">
         <%= f.label :birthplace %><br />
@@ -67,7 +67,7 @@
     </div>
     <div class="clear"></div>
     <div class="group navform">
-      <%= f.submit "Salvar" %> ou     <%= link_to 'Cancelar', cadums_path %>
+      <%= f.submit "Salvar" %> ou <%= link_to 'Cancelar', cadums_path %>
     </div>
   </div>
 <% end %>

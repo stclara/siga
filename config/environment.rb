@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem "postgres"
   config.gem "postgis_adapter"
   config.gem "authlogic"
+  config.gem "haml"
   config.gem "bcrypt-ruby", :lib => "bcrypt"
   config.gem "thoughtbot-paperclip" , :lib => "paperclip"
   config.gem "rghost"
