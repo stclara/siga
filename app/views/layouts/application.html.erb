@@ -5,15 +5,16 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <title>SIG@ - SISTEMA DE GESTÃO @DMINISTRATIVA</title>
-    <%= stylesheet_link_tag 'base', 'style' %>
-    <%# stylesheet_link_tag 'siga' %>
-    <%= javascript_include_tag 'jquery', 'application', :cache => true %>
+    <% bundle :name => :base do %>
+      <%= stylesheet_link_tag 'base', 'style' %>
+      <%= javascript_include_tag 'jquery', 'application' %>
+    <% end %>
+    <%= yield :head %>
   </head>
   <body>
     <div id='container'>
       <div id='header'>
         <h1><%= image_tag "layout/logo.png" %> </h1>
-        <%# yield :content_header %>
         <div id='user-navigation'>
           <ul>
             <li><%= link_to "Notícias", "/articles"%> </li>
