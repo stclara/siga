@@ -2,11 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
 describe "/addresses/edit.html.erb" do
   include AddressesHelper
-  
+
   before(:each) do
     assigns[:address] = @address = stub_model(Address,
       :new_record? => false,
-      :addressable => ,
       :street => "value for street",
       :complement => "value for complement",
       :number => "value for number",
@@ -16,9 +15,8 @@ describe "/addresses/edit.html.erb" do
 
   it "should render edit form" do
     render "/addresses/edit.html.erb"
-    
+
     response.should have_tag("form[action=#{address_path(@address)}][method=post]") do
-      with_tag('input#address_addressable[name=?]', "address[addressable]")
       with_tag('input#address_street[name=?]', "address[street]")
       with_tag('input#address_complement[name=?]', "address[complement]")
       with_tag('input#address_number[name=?]', "address[number]")

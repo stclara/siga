@@ -4,7 +4,6 @@ describe "/addresses/show.html.erb" do
   include AddressesHelper
   before(:each) do
     assigns[:address] = @address = stub_model(Address,
-      :addressable => ,
       :street => "value for street",
       :complement => "value for complement",
       :number => "value for number",
@@ -14,7 +13,6 @@ describe "/addresses/show.html.erb" do
 
   it "should render attributes in <p>" do
     render "/addresses/show.html.erb"
-    response.should have_text(//)
     response.should have_text(/value\ for\ street/)
     response.should have_text(/value\ for\ complement/)
     response.should have_text(/value\ for\ number/)

@@ -4,7 +4,6 @@ describe "/contacts/show.html.erb" do
   include ContactsHelper
   before(:each) do
     assigns[:contact] = @contact = stub_model(Contact,
-      :contactable => ,
       :kind => "value for kind",
       :value => "value for value",
       :info => "value for info"
@@ -13,7 +12,6 @@ describe "/contacts/show.html.erb" do
 
   it "should render attributes in <p>" do
     render "/contacts/show.html.erb"
-    response.should have_text(//)
     response.should have_text(/value\ for\ kind/)
     response.should have_text(/value\ for\ value/)
     response.should have_text(/value\ for\ info/)

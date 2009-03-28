@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/opts/index.html.erb" do
-  include OptsHelper
-  
+describe "/admin/index.html.erb" do
+  include AdminHelper
+
   before(:each) do
     assigns[:opts] = [
       stub_model(Opt,
