@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem "bcrypt-ruby", :lib => "bcrypt"
   config.gem "thoughtbot-paperclip" , :lib => "paperclip"
   config.gem "rghost"
+  config.gem "nofxx-money", :lib => "money"
 
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
