@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :heritages
+
+  map.resources :storages
+
+  map.resources :calendars
+
   map.resources :procurements
 
   map.resources :registers

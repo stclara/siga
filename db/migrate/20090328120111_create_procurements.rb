@@ -10,6 +10,7 @@ class CreateProcurements < ActiveRecord::Migration
 
     add_index :procurements, :name
     add_index :procurements, :due_at
+    add_index :procurements, :created_at
   end
 
   def self.down

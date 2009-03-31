@@ -1,23 +1,26 @@
 class CreateCadums < ActiveRecord::Migration
   def self.up
     create_table :cadums do |t|
-      t.string :name
-      t.string :sex
-      t.string :marital_status
-      t.date :birth
-      t.string :birthplace
-      t.string :time_residence
+      t.string :name, :null => false
+      t.boolen :sex, :null => false, :default => false
+      t.string :marital
+      t.string :education
       t.string :profession
-      t.integer :income
-      t.string :housing
-      t.string :type_housing
-      t.string :type_house
-      t.integer :room
-      t.integer :revenue
-      t.integer :habitantes
+      t.string :house_type
+
+      t.integer :revenue_cents, :income_cents, :rooms
+
+      t.references :birthplace, :mom, :dad, :spouse
+      t.date :born_at, :arrival_at
 
       t.timestamps
     end
+
+    add_index :cadums, :name
+    add_index :cadums, :sex
+    add_index :cadums, :mom_id
+    add_index :cadums, :dad_id
+    add_index :cadums, :spouse_id
   end
 
   def self.down

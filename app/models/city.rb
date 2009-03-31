@@ -1,4 +1,8 @@
 class City < ActiveRecord::Base
+  belongs_to :province
+  has_many :zones
+
+  validates_presence_of :name
 end
 
 # == Schema Information

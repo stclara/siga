@@ -3,6 +3,23 @@ class Cadum < ActiveRecord::Base
   has_many :addresses, :as => :addressable
   has_many :contacts, :as => :contactable
 
+  validates_presence_of :name
+  validates_inclusion_of :sex, :in => [true, false]
+
+  state_machine :state, :initial => :active do
+
+    event :activate do
+      transition all => :active
+    end
+
+    event :inactivate do
+      transition :active => :inactive
+    end
+
+    event :suspend do
+      transition all => :suspended
+    end
+  end
 
 end
 
