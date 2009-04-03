@@ -1,10 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <title>SIG@ - SISTEMA DE GESTÃO @DMINISTRATIVA</title>
+    <title>SIG@ { <%= controller.controller_name %> }</title>
     <% bundle :name => :base do %>
       <%= stylesheet_link_tag 'base', 'style' %>
       <%= javascript_include_tag 'jquery', 'application' %>
@@ -22,6 +21,7 @@
             <% if current_user %>
               <li><%= link_to "Mensagens", "/inbox"%> </li>
               <li><%= link_to "Opções", "/"%> </li>
+              <li><a href="/admin">Admin</a></li>
               <li><%= link_to "Sair", '/logout'%> </li>
             <% else %>
               <li><%= link_to "Signup", "/signup"%> </li>
@@ -38,13 +38,15 @@
             <li><a href="/publications">Editais</a></li>
             <li><a href="/laws">Leis</a></li>
             <% if current_user %>
-              <li class="active"><a href="/person">Person</a></li>
-              <li><a href="/admin">Admin</a></li>
+              <li class="active"><a href="/people">Municipes</a></li>
+              <li><a href="/areas">Areas</a></li>
+              <li><a href="/properties">Propriedades</a></li>
+              <li><a href="/procurements">Licitacoes</a></li>
+              <li><a href="/storages">Almoxarifado</a></li>
             <% end %>
           </ul>
           <div class="clear"></div>
         </div>
-
       </div>
       <div id='wrapper'>
         <%= flash_message %>
@@ -67,10 +69,19 @@
             </div>
           <% end %>
           <div class="block">
-            <h3>Login</h3>
-            <div class="content">
-              <%= render :partial => "user_sessions/new" %>
-            </div>
+            <% if current_user %>
+              <h3> <%= current_user.name %></h3>
+              <div class="content">
+                Oi!
+              </div>
+
+            <% else %>
+
+              <h3>Login</h3>
+              <div class="content">
+                <%= render :partial => "user_sessions/new" %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class='clear'></div>
