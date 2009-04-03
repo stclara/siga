@@ -1,6 +1,6 @@
 <div class="block">
   <div class="content">
-    <h2 class="title">CADUM</h2>
+    <h2 class="title">PERSON</h2>
     <div class="inner">
       <table class="table">
 
@@ -12,13 +12,13 @@
           <th>Local</th>
         </tr>
 
-        <% @cadums.each do |cadum| %>
+        <% @people.each do |person| %>
           <tr>
-            <td><%= link_to cadum.name, cadum %></td>
-            <td><%=h cadum.sex %></td>
-            <td><%=h cadum.marital_status %></td>
-            <td><%=h cadum.birth %></td>
-            <td><%=h cadum.birthplace %></td>
+            <td><%= link_to person.name, person %></td>
+            <td><%=h person.sex %></td>
+            <td><%=h person.marital_status %></td>
+            <td><%=h person.birth %></td>
+            <td><%=h person.birthplace %></td>
           </tr>
         <% end %>
       </table>
@@ -36,7 +36,7 @@
       <p>
         <% form_tag request.path, :method => 'get' do %>
         <%= link_to image_tag('../images/icons/lupa.png', :class=>'img') %>
-        <%= text_field_tag :search, params[:search], :title=>'Procura CADUM' %>
+        <%= text_field_tag :search, params[:search], :title=>'Procura PERSON' %>
       </p>
 <% end %>
 
@@ -49,7 +49,7 @@
 <div class="block">
   <h3>Menu</h3>
   <ul class="navigation">
-    <li><%= link_to image_tag('../images/icons/add.png', :class=>'img')+' Novo Registro', new_cadum_path %></li>
+    <li><%= link_to image_tag('../images/icons/add.png', :class=>'img')+' Novo Registro', new_person_path %></li>
   </ul>
 </div>
 

@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  belongs_to :cadum
+  belongs_to :person
 end
 
 # == Schema Information
@@ -8,7 +8,7 @@ end
 # Table name: documents
 #
 #  id         :integer         not null, primary key
-#  cadum_id   :integer         not null
+#  person_id   :integer         not null
 #  kind       :string(10)      not null
 #  value      :string(255)     not null
 #  note       :string(255)

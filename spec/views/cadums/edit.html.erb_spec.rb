@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/cadums/edit.html.erb" do
-  include CadumsHelper
-  
+describe "/people/edit.html.erb" do
+  include PeopleHelper
+
   before(:each) do
-    assigns[:cadum] = @cadum = stub_model(Cadum,
+    assigns[:person] = @person = stub_model(Person,
       :new_record? => false,
       :name => "value for name",
       :sex => "value for sex",
@@ -22,23 +22,23 @@ describe "/cadums/edit.html.erb" do
     )
   end
 
-  it "renders the edit cadum form" do
+  it "renders the edit person form" do
     render
-    
-    response.should have_tag("form[action=#{cadum_path(@cadum)}][method=post]") do
-      with_tag('input#cadum_name[name=?]', "cadum[name]")
-      with_tag('input#cadum_sex[name=?]', "cadum[sex]")
-      with_tag('input#cadum_marital_status[name=?]', "cadum[marital_status]")
-      with_tag('input#cadum_birthplace[name=?]', "cadum[birthplace]")
-      with_tag('input#cadum_time_residence[name=?]', "cadum[time_residence]")
-      with_tag('input#cadum_profession[name=?]', "cadum[profession]")
-      with_tag('input#cadum_income[name=?]', "cadum[income]")
-      with_tag('input#cadum_housing[name=?]', "cadum[housing]")
-      with_tag('input#cadum_type_housing[name=?]', "cadum[type_housing]")
-      with_tag('input#cadum_type_house[name=?]', "cadum[type_house]")
-      with_tag('input#cadum_room[name=?]', "cadum[room]")
-      with_tag('input#cadum_revenue[name=?]', "cadum[revenue]")
-      with_tag('input#cadum_habitantes[name=?]', "cadum[habitantes]")
+
+    response.should have_tag("form[action=#{person_path(@person)}][method=post]") do
+      with_tag('input#person_name[name=?]', "person[name]")
+      with_tag('input#person_sex[name=?]', "person[sex]")
+      with_tag('input#person_marital_status[name=?]', "person[marital_status]")
+      with_tag('input#person_birthplace[name=?]', "person[birthplace]")
+      with_tag('input#person_time_residence[name=?]', "person[time_residence]")
+      with_tag('input#person_profession[name=?]', "person[profession]")
+      with_tag('input#person_income[name=?]', "person[income]")
+      with_tag('input#person_housing[name=?]', "person[housing]")
+      with_tag('input#person_type_housing[name=?]', "person[type_housing]")
+      with_tag('input#person_type_house[name=?]', "person[type_house]")
+      with_tag('input#person_room[name=?]', "person[room]")
+      with_tag('input#person_revenue[name=?]', "person[revenue]")
+      with_tag('input#person_habitantes[name=?]', "person[habitantes]")
     end
   end
 end

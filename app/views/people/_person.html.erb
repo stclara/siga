@@ -1,5 +1,5 @@
 
-<% form_for(@cadum, :html => { :class => "form" }) do |f| %>
+<% form_for(@person, :html => { :class => "form" }) do |f| %>
   <%= f.error_messages %>
   <div class="columns">
 
@@ -15,19 +15,19 @@
       </div>
       <div class="group">
         <%= f.label :marital_status %><br />
-        <%= f.text_field :marital_status %>
+        <%= f.text_field :marital %>
       </div>
       <div class="group">
         <%= f.label :birth %><br />
-        <%= f.text_field :birth %>
+        <%= f.text_field :born_at %>
       </div>
       <div class="group">
         <%= f.label :birthplace %><br />
-        <%= f.text_field :birthplace %>
+        <%# f.text_field :birthplace %>
       </div>
       <div class="group">
         <%= f.label :time_residence %><br />
-        <%= f.text_field :time_residence %>
+        <%= f.text_field :arrival_at %>
       </div>
       <div class="group">
         <%= f.label :profession %><br />
@@ -42,32 +42,22 @@
       </div>
       <div class="group">
         <%= f.label :housing %><br />
-        <%= f.text_field :housing %>
+        <%= f.text_field :house_type %>
       </div>
-      <div class="group">
-        <%= f.label :type_housing %><br />
-        <%= f.text_field :type_housing %>
-      </div>
-      <div class="group">
-        <%= f.label :type_house %><br />
-        <%= f.text_field :type_house %>
-      </div>
+
       <div class="group">
         <%= f.label :room %><br />
-        <%= f.text_field :room %>
+        <%= f.text_field :rooms %>
       </div>
       <div class="group">
         <%= f.label :revenue %><br />
         <%= f.text_field :revenue %>
       </div>
-      <div class="group">
-        <%= f.label :habitantes %><br />
-        <%= f.text_field :habitantes %>
-      </div>
+
     </div>
     <div class="clear"></div>
     <div class="group navform">
-      <%= f.submit "Salvar" %> ou <%= link_to 'Cancelar', cadums_path %>
+      <%= f.submit "Salvar" %> ou <%= link_to 'Cancelar', people_path %>
     </div>
   </div>
 <% end %>

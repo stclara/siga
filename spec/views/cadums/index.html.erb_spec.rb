@@ -1,11 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/cadums/index.html.erb" do
-  include CadumsHelper
-  
+describe "/people/index.html.erb" do
+  include PeopleHelper
+
   before(:each) do
-    assigns[:cadums] = [
-      stub_model(Cadum,
+    assigns[:people] = [
+      stub_model(Person,
         :name => "value for name",
         :sex => "value for sex",
         :marital_status => "value for marital_status",
@@ -20,7 +20,7 @@ describe "/cadums/index.html.erb" do
         :revenue => 1,
         :habitantes => 1
       ),
-      stub_model(Cadum,
+      stub_model(Person,
         :name => "value for name",
         :sex => "value for sex",
         :marital_status => "value for marital_status",
@@ -38,7 +38,7 @@ describe "/cadums/index.html.erb" do
     ]
   end
 
-  it "renders a list of cadums" do
+  it "renders a list of people" do
     render
     response.should have_tag("tr>td", "value for name".to_s, 2)
     response.should have_tag("tr>td", "value for sex".to_s, 2)

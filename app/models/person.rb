@@ -1,7 +1,9 @@
-class Cadum < ActiveRecord::Base
+class Person < ActiveRecord::Base
   has_many :documents
   has_many :addresses, :as => :addressable
   has_many :contacts, :as => :contactable
+
+  has_money :income, :revenue
 
   validates_presence_of :name
   validates_inclusion_of :sex, :in => [true, false]
@@ -26,7 +28,7 @@ end
 # == Schema Information
 # Schema version: 99999999999999
 #
-# Table name: cadums
+# Table name: people
 #
 #  id             :integer         not null, primary key
 #  name           :string(255)

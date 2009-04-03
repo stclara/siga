@@ -25,3 +25,4 @@ rubyrun/*
 public/rubyrun_rss/*
 *#*#
 *.#*
+config/deploy.rb

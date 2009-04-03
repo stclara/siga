@@ -35,8 +35,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contacts
   map.resources :sectors
   map.resources :reports
-  map.resources :cadums
-  map.resources :cadum, :controller => "cadums"
+  map.resources :people
+  map.resources :person, :controller => "people"
   map.resources :admin
 
   map.resource :user_session

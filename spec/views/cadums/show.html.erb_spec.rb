@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
-describe "/cadums/show.html.erb" do
-  include CadumsHelper
+describe "/people/show.html.erb" do
+  include PeopleHelper
   before(:each) do
-    assigns[:cadum] = @cadum = stub_model(Cadum,
+    assigns[:person] = @person = stub_model(Person,
       :name => "value for name",
       :sex => "value for sex",
       :marital_status => "value for marital_status",
